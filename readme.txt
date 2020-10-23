@@ -21,3 +21,100 @@ for commiting changes to files in repository
 : git commit -m "adding new files"
 : git push origin
 
+for project adding, please follow the instructions below from https://sites.google.com/site/cartwrightraspberrypiprojects/home/ramblings/tutorials/using-github
+
+github tutorial
+
+I use github to save my source code repositories making it easier to download and install projects.
+
+Prerequisites:
+
+git is version control software for code, and it comes pre-installed on Raspberry Pi's running raspbian. 
+
+git has a local repository on a laptop or Raspberry PI and a cloud repository on github.
+
+To check if git is installed on raspbian run the command:
+
+$ which git
+
+/usr/bin/git
+
+If it is not installed, run the command:
+
+$ sudo apt-get install git
+
+Step 1. Regsister for a github account
+
+Open a browser and click on the link in Step 1
+
+Step 2. Cread a github repository
+
+On  the github site, click on New icon
+
+Enter name of repository: your-repository
+
+Scroll down, and click Create Repository
+
+Step 3. Create a project
+
+Name your project by creating a directory and moving into that directory
+
+$ mkdir your-project
+
+$ cd your-project
+
+Describe the project by editing the file:
+
+$ nano README.md
+
+Step 4. Create a local repository
+
+Open a terminal window, and ssh in to the Raspberry Pi
+
+Create a local git repository:
+
+$ git init
+
+Step 5. Setup git on Raspberry Pi
+
+Run the following commands to set up your local repository's config file:
+
+$ git config --global user.name your-username
+
+$ git config --global user.email "your-email@gmail.com"
+
+$ git config --global core.editor nano
+
+Step 6. Add files
+
+Use one of these commands to add one file or all files:
+
+$ git add README.md
+
+$ git add --all
+
+Step 7. Link local and github repositories
+
+Push the local repository to github
+
+$ git commit -m "initial commit"
+
+$ git remote add origin https://github.com/your-username/your-project.git
+
+$ git push origin master
+
+Commit changes
+
+After you've made changes, add everything that changed and add a comment explaining the changes:
+
+$ git commit -am "this-is-a-comment"
+
+$ git push origin master
+
+If a push doesn't work, --force option will make github accept the changes, but this is not recommended
+
+Get a repository 
+
+Login to a raspberry and run the command:
+
+$ git clone https://github.com/dumbo25/restful_api
