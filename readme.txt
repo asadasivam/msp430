@@ -16,3 +16,8 @@ for removing files from repository
 : git commit -m "removing multiple files"
 : git push origin
 
+for commiting changes to files in repository
+: git add <file_name>
+: git commit -m "adding new files"
+: git push origin
+
