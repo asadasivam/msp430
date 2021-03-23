@@ -1,2 +1,2 @@
 # embed-program
-developing embed coding for different architecture
+Developing embed coding for different architecture using Embedded C.
