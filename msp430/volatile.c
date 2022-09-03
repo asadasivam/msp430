@@ -28,7 +28,7 @@
 #define uint16_t unsigned int
 #define baseAddress __MSP430_BASEADDRESS_PORT1_R__
 #define PORT1_IN    (*((volatile uint16_t *)((uint16_t)baseAddress + (0x0000))))
-//try to comment volatile from above macro and optimize whole program and 
+//try to comment volatile from macro-PORT1_IN and optimize whole program and 
 //see whether the IN buffer read. It will not. So, its one of the use of volatile.
 
 unsigned char arr[20] = {0};
