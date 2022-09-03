@@ -1,2 +1,4 @@
 # embed-program
-Developing embed coding for different architecture using Embedded C.
+AOI: DSP n DIP Engg. Robot Engg.
+Research Papers database, methods, updates
+libraries n diff langs.
