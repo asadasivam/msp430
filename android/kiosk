@@ -1,0 +1,1 @@
+To enable kiosk mode in mobile device, Device Owner has to enable for that particular android phone. Device owner can be set using adb cmd. make sure in manifest.xml file inclusion of "android:testonly" to exit from kiosk mode
