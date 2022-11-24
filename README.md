@@ -1,4 +1,4 @@
-# embed-program
-AOI: DSP n DIP Engg. Robot Engg.
-Research Papers database, methods, updates
-libraries n diff langs.
+#1 embedded programs
+#2 papers
+#3 projects
+
