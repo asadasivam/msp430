@@ -1,4 +1,4 @@
-for creating a file 
+1 for creating a file 
 : touch <file_name>
 
 for adding a created file into git

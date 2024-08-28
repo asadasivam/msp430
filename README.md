@@ -1,4 +1,6 @@
-#1 embedded systems   - software coding in c and c++ language
-#2 driver development - controller peripherals - MSP40 | STM32F4 and linux device drivers
-#3 rtos programming   - freertos stm32
+#1 from electronics background
+#2 embedded software coding in c and c++ language
+#3 controller peripherals usage - msp430 and stm32
+#4 freertos usage in stm32
+
 
