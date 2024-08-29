@@ -1,4 +1,4 @@
-1 for creating a file 
+for creating a file 
 : touch <file_name>
 
 for adding a created file into git
@@ -10,6 +10,9 @@ for adding file
 for pushing changes to gitHub
 : git push origin
 
+for pulling changes from gitHub to Local repository
+: git pull origin master
+
 for removing files from repository
 : cd <directory_name>
 : git rm -- <file_name>
@@ -20,18 +23,6 @@ for commiting changes to files in repository
 : git add <file_name>
 : git commit -m "adding new files"
 : git push origin
-
-for project adding, please follow the instructions below from https://sites.google.com/site/cartwrightraspberrypiprojects/home/ramblings/tutorials/using-github
-
-github tutorial
-
-I use github to save my source code repositories making it easier to download and install projects.
-
-Prerequisites:
-
-git is version control software for code, and it comes pre-installed on Raspberry Pi's running raspbian. 
-
-git has a local repository on a laptop or Raspberry PI and a cloud repository on github.
 
 To check if git is installed on raspbian run the command:
 
