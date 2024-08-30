@@ -1,10 +1,10 @@
 ******************************************************************************
                   MSP430 Linker Unix v21.6.1                   
 ******************************************************************************
->> Linked Fri Aug 30 20:41:42 2024
+>> Linked Fri Aug 30 22:46:50 2024
 
 OUTPUT FILE NAME:   <001_hw_logic.out>
-ENTRY POINT SYMBOL: "_c_int00_noargs_mpu"  address: 00004400
+ENTRY POINT SYMBOL: "_c_int00_noargs_mpu"  address: 00004800
 
 
 MEMORY CONFIGURATION
@@ -19,7 +19,7 @@ MEMORY CONFIGURATION
   INFOB                 00001900   00000080  00000000  00000080  RWIX
   INFOA                 00001980   00000080  00000000  00000080  RWIX
   RAM                   00001c00   00000800  000000b5  0000074b  RWIX
-  FRAM                  00004400   0000bb80  00000050  0000bb30  RWIX
+  FRAM                  00004400   0000bb80  00000450  0000b730  RWIX
   JTAGSIGNATURE         0000ff80   00000004  00000004  00000000  RWIX  ffff 
   BSLSIGNATURE          0000ff84   00000004  00000004  00000000  RWIX  ffff 
   IPESIGNATURE          0000ff88   00000008  00000008  00000000  RWIX  ffff 
@@ -92,26 +92,28 @@ section   page    origin      length       input sections
 
 .cio       0    00004400    00000000     UNINITIALIZED
 
-.sysmem    0    00004400    00000000     UNINITIALIZED
+.sysmem    0    00004400    000000a0     UNINITIALIZED
+                  00004400    00000008     rts430x_lc_rd_eabi.lib : memory.c.obj (.sysmem)
+                  00004408    00000098     --HOLE--
 
 .ipestruct 
-*          0    00004400    00000000     UNINITIALIZED
+*          0    00004800    00000000     UNINITIALIZED
 
-.ipe       0    00004400    00000000     UNINITIALIZED
+.ipe       0    00004800    00000000     UNINITIALIZED
 
 .ipe_const 
-*          0    00004400    00000000     UNINITIALIZED
+*          0    00004800    00000000     UNINITIALIZED
 
 .ipe:_isr 
-*          0    00004400    00000000     UNINITIALIZED
+*          0    00004800    00000000     UNINITIALIZED
 
 .ipe_vars 
-*          0    00004400    00000000     UNINITIALIZED
+*          0    00004800    00000000     UNINITIALIZED
 
-.cinit     0    00004438    00000018     
-                  00004438    00000008     (.cinit..data.load) [load image, compression = lzss]
-                  00004440    00000008     (__TI_handler_table)
-                  00004448    00000008     (__TI_cinit_table)
+.cinit     0    00004838    00000018     
+                  00004838    00000008     (.cinit..data.load) [load image, compression = lzss]
+                  00004840    00000008     (__TI_handler_table)
+                  00004848    00000008     (__TI_cinit_table)
 
 .binit     0    00004400    00000000     
 
@@ -119,10 +121,10 @@ section   page    origin      length       input sections
 *          0    00004400    00000000     UNINITIALIZED
 
 .text:_isr 
-*          0    00004400    00000038     
-                  00004400    00000020     rts430x_lc_rd_eabi.lib : boot.c.obj (.text:_isr:_c_int00_noargs_mpu)
-                  00004420    00000010     main.obj (.text:_isr:Port_1)
-                  00004430    00000008     rts430x_lc_rd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
+*          0    00004800    00000038     
+                  00004800    00000020     rts430x_lc_rd_eabi.lib : boot.c.obj (.text:_isr:_c_int00_noargs_mpu)
+                  00004820    00000010     main.obj (.text:_isr:_Z6Port_1v)
+                  00004830    00000008     rts430x_lc_rd_eabi.lib : isr_trap.asm.obj (.text:_isr:__TI_ISR_TRAP)
 
 .data      0    00001c00    00000015     UNINITIALIZED
                   00001c00    00000014     main.obj (.data:arr)
@@ -291,21 +293,22 @@ MODULE SUMMARY
     +--+----------------------------+------+---------+---------+
        Total:                       292    50        0      
                                                             
+       Heap:                        0      0         160    
        Stack:                       0      0         160    
        Linker Generated:            0      24        0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 474    76        181    
+       Grand Total:                 474    76        341    
 
 
 LINKER GENERATED COPY TABLES
 
-__TI_cinit_table @ 00004448 records: 1, size/record: 8, table size: 8
-	.data: load addr=00004438, load size=00000008 bytes, run addr=00001c00, run size=00000015 bytes, compression=lzss
+__TI_cinit_table @ 00004848 records: 1, size/record: 8, table size: 8
+	.data: load addr=00004838, load size=00000008 bytes, run addr=00001c00, run size=00000015 bytes, compression=lzss
 
 
 LINKER GENERATED HANDLER TABLE
 
-__TI_handler_table @ 00004440 records: 2, size/record: 4, table size: 8
+__TI_handler_table @ 00004840 records: 2, size/record: 4, table size: 8
 	index: 0, handler: __TI_decompress_lzss
 	index: 1, handler: __TI_decompress_none
 
@@ -834,7 +837,6 @@ address   name
 0000012a  PMMIFG                                 
 0000012b  PMMIFG_H                               
 0000012a  PMMIFG_L                               
-00004420  Port_1                                 
 000001b0  REFCTL0                                
 000001b1  REFCTL0_H                              
 000001b0  REFCTL0_L                              
@@ -1095,14 +1097,17 @@ address   name
 0000015c  WDTCTL                                 
 0000015d  WDTCTL_H                               
 0000015c  WDTCTL_L                               
+00004820  _Z6Port_1v                             
+00010196  _ZSt17__throw_bad_allocv               
 00002400  __STACK_END                            
 000000a0  __STACK_SIZE                           
-00004448  __TI_CINIT_Base                        
-00004450  __TI_CINIT_Limit                       
-00004450  __TI_CINIT_Warm                        
-00004440  __TI_Handler_Table_Base                
-00004448  __TI_Handler_Table_Limit               
-00004430  __TI_ISR_TRAP                          
+000000a0  __SYSMEM_SIZE                          
+00004848  __TI_CINIT_Base                        
+00004850  __TI_CINIT_Limit                       
+00004850  __TI_CINIT_Warm                        
+00004840  __TI_Handler_Table_Base                
+00004848  __TI_Handler_Table_Limit               
+00004830  __TI_ISR_TRAP                          
 000100f0  __TI_auto_init_nobinit_nopinit_hold_wdt
 0001007a  __TI_decompress_lzss                   
 00010184  __TI_decompress_none                   
@@ -1137,24 +1142,25 @@ ffffffff  __TI_prof_data_start
 ffffffff  __c_args__                             
 00000001  __mpu_enable                           
 00010144  __mpu_init                             
-00004400  _c_int00_noargs_mpu                    
+00004800  _c_int00_noargs_mpu                    
 0000fffe  _reset_vector                          
 00002360  _stack                                 
+00004400  _sys_memory                            
 000101a0  _system_post_cinit                     
 0001019c  _system_pre_init                       
 00010196  abort                                  
 00001c00  arr                                    
-00004400  fram_ipe_end                           
-00004400  fram_ipe_start                         
+00004800  fram_ipe_end                           
+00004800  fram_ipe_start                         
 00004400  fram_rw_start                          
-00004400  fram_rx_start                          
+00004800  fram_rx_start                          
 00001c14  i                                      
 00010000  main                                   
 00010170  memcpy                                 
 0000a501  mpu_ctl0_value                         
 00001513  mpu_sam_value                          
-00000440  mpu_segment_border1                    
-00000440  mpu_segment_border2                    
+00000480  mpu_segment_border1                    
+00000480  mpu_segment_border2                    
 
 
 GLOBAL SYMBOLS: SORTED BY Symbol Address 
@@ -1163,6 +1169,7 @@ address   name
 -------   ----                                   
 00000001  __mpu_enable                           
 000000a0  __STACK_SIZE                           
+000000a0  __SYSMEM_SIZE                          
 00000100  SFRIE1                                 
 00000100  SFRIE1_L                               
 00000101  SFRIE1_H                               
@@ -1391,8 +1398,6 @@ address   name
 0000043e  CAPTIO0CTL_L                           
 0000043f  CAPTIO0CTL_H                           
 00000440  TA3CTL                                 
-00000440  mpu_segment_border1                    
-00000440  mpu_segment_border2                    
 00000442  TA3CCTL0                               
 00000444  TA3CCTL1                               
 00000450  TA3R                                   
@@ -1403,6 +1408,8 @@ address   name
 0000047e  CAPTIO1CTL                             
 0000047e  CAPTIO1CTL_L                           
 0000047f  CAPTIO1CTL_H                           
+00000480  mpu_segment_border1                    
+00000480  mpu_segment_border2                    
 000004a0  RTCCTL01                               
 000004a0  RTCCTL01_L                             
 000004a1  RTCCTL01_H                             
@@ -1949,18 +1956,19 @@ address   name
 00001c14  i                                      
 00002360  _stack                                 
 00002400  __STACK_END                            
-00004400  _c_int00_noargs_mpu                    
-00004400  fram_ipe_end                           
-00004400  fram_ipe_start                         
+00004400  _sys_memory                            
 00004400  fram_rw_start                          
-00004400  fram_rx_start                          
-00004420  Port_1                                 
-00004430  __TI_ISR_TRAP                          
-00004440  __TI_Handler_Table_Base                
-00004448  __TI_CINIT_Base                        
-00004448  __TI_Handler_Table_Limit               
-00004450  __TI_CINIT_Limit                       
-00004450  __TI_CINIT_Warm                        
+00004800  _c_int00_noargs_mpu                    
+00004800  fram_ipe_end                           
+00004800  fram_ipe_start                         
+00004800  fram_rx_start                          
+00004820  _Z6Port_1v                             
+00004830  __TI_ISR_TRAP                          
+00004840  __TI_Handler_Table_Base                
+00004848  __TI_CINIT_Base                        
+00004848  __TI_Handler_Table_Limit               
+00004850  __TI_CINIT_Limit                       
+00004850  __TI_CINIT_Warm                        
 0000a501  mpu_ctl0_value                         
 0000ffcc  __TI_int30                             
 0000ffce  __TI_int31                             
@@ -1995,6 +2003,7 @@ address   name
 00010170  memcpy                                 
 00010184  __TI_decompress_none                   
 00010196  C$$EXIT                                
+00010196  _ZSt17__throw_bad_allocv               
 00010196  abort                                  
 0001019c  _system_pre_init                       
 000101a0  _system_post_cinit                     
@@ -2003,4 +2012,4 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start                   
 ffffffff  __c_args__                             
 
-[841 symbols]
+[844 symbols]

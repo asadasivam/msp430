@@ -8,13 +8,21 @@
 #ifndef SWDEBUG_H_
 #define SWDEBUG_H_
 
-#include <IODriver.h>
+#include <gIOClass.h>
+#include "gPreScaler.h"
+#include "gIOClass.h"
 
-class swDebug: public IODriver
+typedef enum setDirection{
+    input   = 0,
+    output  = 1
+}setDIR;
+
+class swDebug
 {
 public:
     swDebug();
     virtual ~swDebug();
+    GPIO_Direction(gPreScaler setPrescaler, setDIR outDIR);
 };
 
 #endif /* SWDEBUG_H_ */

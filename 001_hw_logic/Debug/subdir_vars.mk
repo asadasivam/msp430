@@ -3,25 +3,49 @@
 ################################################################################
 
 # Add inputs and outputs from these tool invocations to the build variables 
+CPP_SRCS += \
+../gCSClass.cpp \
+../gIOClass.cpp \
+../gPreScaler.cpp \
+../main.cpp \
+../swDebug.cpp 
+
 CMD_SRCS += \
 ../lnk_msp430fr5969.cmd 
 
-C_SRCS += \
-../main.c 
-
-C_DEPS += \
-./main.d 
-
 OBJS += \
-./main.obj 
+./gCSClass.obj \
+./gIOClass.obj \
+./gPreScaler.obj \
+./main.obj \
+./swDebug.obj 
+
+CPP_DEPS += \
+./gCSClass.d \
+./gIOClass.d \
+./gPreScaler.d \
+./main.d \
+./swDebug.d 
 
 OBJS__QUOTED += \
-"main.obj" 
+"gCSClass.obj" \
+"gIOClass.obj" \
+"gPreScaler.obj" \
+"main.obj" \
+"swDebug.obj" 
 
-C_DEPS__QUOTED += \
-"main.d" 
+CPP_DEPS__QUOTED += \
+"gCSClass.d" \
+"gIOClass.d" \
+"gPreScaler.d" \
+"main.d" \
+"swDebug.d" 
 
-C_SRCS__QUOTED += \
-"../main.c" 
+CPP_SRCS__QUOTED += \
+"../gCSClass.cpp" \
+"../gIOClass.cpp" \
+"../gPreScaler.cpp" \
+"../main.cpp" \
+"../swDebug.cpp" 
 
 
