@@ -8,7 +8,11 @@ GEN_OPTS__FLAG :=
 GEN_CMDS__FLAG := 
 
 ORDERED_OBJS += \
+"./gCSClass.obj" \
+"./gIOClass.obj" \
+"./gPreScaler.obj" \
 "./main.obj" \
+"./swDebug.obj" \
 "../lnk_msp430fr5969.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibmpu_init.a \
@@ -141,8 +145,8 @@ all: $(OBJS) $(CMD_SRCS) $(GEN_CMDS)
 # Other Targets
 clean:
 	-$(RM) $(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" 
-	-$(RM) "main.d" 
+	-$(RM) "gCSClass.obj" "gIOClass.obj" "gPreScaler.obj" "main.obj" "swDebug.obj" 
+	-$(RM) "gCSClass.d" "gIOClass.d" "gPreScaler.d" "main.d" "swDebug.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
