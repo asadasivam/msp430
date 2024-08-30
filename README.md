@@ -1,7 +1,10 @@
-Pre-requisi
-1. Git clone msp430 repository using terminal command
-   username@hosname> htps://github.com/asadasivam/msp430.git
+Pre-requisites
+1. Please refer the GIT_CMD file for GIT setup in local repository.
 
-2. >cd msp430 //change directory to msp430
+Sample code debug
+1. Git clone msp430 repository using linux terminal command
+   username@hosname> git clone htps://github.com/asadasivam/msp430.git
 
-3. 
+2. In Code Composer Studio IDE, Select File->Import, Import Project using "GIT" -> locate local repo path and Finish project import
+
+3. For GIT usage, Right Click Project folder, Select Teams-> <GIT_CMD>
