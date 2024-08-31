@@ -23,6 +23,10 @@ public:
     swDebug();
     virtual ~swDebug();
     GPIO_Direction(gPreScaler setPrescaler, setDIR outDIR);
+    GPIO_AlernaeFuncion();
+    GPIO_ResisorSelec();
+    GPIO_Read();
+    GPIO_Wrie();
 };
 
 #endif /* SWDEBUG_H_ */

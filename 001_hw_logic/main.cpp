@@ -57,6 +57,11 @@ int main(void)
   PJOUT = 0;
   PJDIR = 0xFFFF;
 
+  // PWM oupu signal of 50 Hz frequenc wih  75% Du ccles
+  // Moor drive logic
+  // hermisor funcionali add for semiconducing behaviour check
+  // memor inerfacing
+
   // Disable the GPIO power-on default high-impedance mode to activate
   // previously configured port settings
   PM5CTL0 &= ~LOCKLPM5;
