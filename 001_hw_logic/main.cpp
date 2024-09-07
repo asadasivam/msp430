@@ -27,6 +27,7 @@
 //port reading
 #define uint16_t unsigned int
 #define baseAddress __MSP430_BASEADDRESS_PORT1_R__
+//dereferencing pointer address
 #define PORT1_IN    (*((volatile uint16_t *)((uint16_t)baseAddress + (0x0000))))
 //try to comment volatile from macro-PORT1_IN and optimize whole program and
 //see whether the IN buffer read. It will not. So, its one of the use of volatile.
@@ -57,11 +58,11 @@ int main(void)
   PJOUT = 0;
   PJDIR = 0xFFFF;
 
-  // PWM oupu signal of 50 Hz frequenc wih  75% Du ccles
+  // PWM output signal of 50 Hz frequency with  75% Duty cycles
   // Moor drive logic
-  // hermisor funcionali add for semiconducing behaviour check
-  // memor inerfacing
-
+  // Thermistor functionality add for semiconducting behavior check
+  // memory interfacing
+  //
   // Disable the GPIO power-on default high-impedance mode to activate
   // previously configured port settings
   PM5CTL0 &= ~LOCKLPM5;
