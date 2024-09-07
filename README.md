@@ -1,5 +1,6 @@
 Pre-requisites
 1. Please refer the GIT_CMD file for GIT setup in local repository.
+2. Insall Code Composer Studio in linux systems.
 
 Sample code debug
 1. Git clone msp430 repository using linux terminal command
