@@ -1,9 +1,0 @@
-"./gCSClass.obj"
-"./gIOClass.obj"
-"./gPreScaler.obj"
-"./main.obj"
-"./swDebug.obj"
-"../lnk_msp430fr5969.cmd"
--llibmpu_init.a
--llibmath.a
--llibc.a
