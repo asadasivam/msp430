@@ -1,16 +1,16 @@
 for creating a file 
 : touch <file_name>
 
-for adding a created file into git
+for adding a created file into local repository
 : git add <file_name>
 
-for adding file
+for committing latest changes into local repository
 : git commit -m "Adding new file"
 
-for pushing changes to gitHub
+for pushing changes to remote repository - gitHub
 : git push origin
 
-for pulling changes from gitHub to Local repository
+for pulling latest changes from gitHub to Local repository
 : git pull origin master
 
 for removing files from repository
@@ -34,13 +34,13 @@ If it is not installed, run the command:
 
 $ sudo apt-get install git
 
-Step 1. Regsister for a github account
+Step 1. Register for a github account
 
-Open a browser and click on the link in Step 1
+Open a browser, go to github home page and click on the "register new user"
 
-Step 2. Cread a github repository
+Step 2. Create new github repository
 
-On  the github site, click on New icon
+On  the github site logged in, click on New icon
 
 Enter name of repository: your-repository
 
