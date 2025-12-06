@@ -1,6 +1,6 @@
 #include <msp430.h>
 
-#define LED	BIT6						// Green LED -> P1.6
+#define LED	BIT6						// Green LED -> P1.6 -- TA0.1 Timer A0 and CCR1
 
 void main(void)
 {
